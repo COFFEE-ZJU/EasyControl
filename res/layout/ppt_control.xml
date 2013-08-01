@@ -51,6 +51,8 @@
         android:id="@+id/touchPanel"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:gravity="center"
+        android:textSize="25sp"
         android:layout_above="@+id/playButton"
         android:layout_below="@+id/rightClickButton" />
 

@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 public class MouseTextView extends TextView {
 	private short oldX,oldY;
-	private MouseTextView thisView=this;
 	private MySender sender=null;
 	private GestureDetector gDetector=null;
 
@@ -47,7 +46,7 @@ public class MouseTextView extends TextView {
 		//private boolean doubleTapping = false;
 		@Override
 		public boolean onSingleTapUp(MotionEvent e) {
-			thisView.setText("UP now x = "+oldX+"\ty = "+oldY);
+			//thisView.setText("UP now x = "+oldX+"\ty = "+oldY);
 		 	//Toast.makeText(getApplicationContext(),"onSingleTapUp", Toast.LENGTH_SHORT).show();
 		    return false;
 		}
@@ -57,14 +56,14 @@ public class MouseTextView extends TextView {
 //			thisView.setText("ononLongPress");
 //			sender.sendAction(new MyAction(true, Constant.ACTION_DOWN, Constant.RIGHT_CLICK));
 //			sender.sendAction(new MyAction(true, Constant.ACTION_UP, Constant.RIGHT_CLICK));
-//			//Toast.makeText(getApplicationContext(),"onLongPress", Toast.LENGTH_SHORT).show();
+//			Toast.makeText(getApplicationContext(),"onLongPress", Toast.LENGTH_SHORT).show();
 		}
 		@Override
 		public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
 			short x,y;
 			x = (short)(distanceX * sensi);
 			y = (short)(distanceY * sensi);
-			thisView.setText("MOVE dist x = "+x+"\ty = "+y);
+			//thisView.setText("MOVE dist x = "+x+"\ty = "+y);
 			sender.sendAction(new MyAction((short)(-x), (short)(-y)));
 			//Toast.makeText(getApplicationContext(),"onScroll", Toast.LENGTH_SHORT).show();
 			return false;
@@ -73,7 +72,7 @@ public class MouseTextView extends TextView {
 		public boolean onDown(MotionEvent e) {
 			oldX = (short)e.getX();
 			oldY = (short)e.getY();
-			thisView.setText("DOWN now x = "+oldX+"\ty = "+oldY);
+			//thisView.setText("DOWN now x = "+oldX+"\ty = "+oldY);
 			//Toast.makeText(getApplicationContext(),"onDown", Toast.LENGTH_SHORT).show();
 		    return false;
 		}
@@ -88,7 +87,7 @@ public class MouseTextView extends TextView {
 		
 		@Override
 		public boolean onDoubleTap(MotionEvent e) {
-			thisView.setText("onDoubleTap");
+			//thisView.setText("onDoubleTap");
 			//Toast.makeText(getApplicationContext(),"onDoubleTap", Toast.LENGTH_SHORT).show();
 		    return false;
 		}
@@ -107,17 +106,17 @@ public class MouseTextView extends TextView {
 			case (MotionEvent.ACTION_DOWN):
 				oldX = (short)e.getX();
 				oldY = (short)e.getY();
-				thisView.setText("secondTap down");
-				sender.sendAction(new MyAction(true, Constant.ACTION_DOWN, Constant.LEFT_CLICK));
+				//thisView.setText("secondTap down");
+				sender.sendAction(new MyAction(Constant.ACTION_MOUSE_DOWN, Constant.LEFT_CLICK));
 				break;
 			case (MotionEvent.ACTION_MOVE):
 				x = (short)(e.getX() - oldX);
 				y = (short)(e.getY() - oldY);
-				thisView.setText("secondTap moving");
+				//thisView.setText("secondTap moving");
 				sender.sendAction(new MyAction(x, y));
 			case (MotionEvent.ACTION_UP):
 				//doubleTapping = false;
-				sender.sendAction(new MyAction(true, Constant.ACTION_UP, Constant.LEFT_CLICK));
+				sender.sendAction(new MyAction(Constant.ACTION_MOUSE_UP, Constant.LEFT_CLICK));
 				break;
 			}
 			
@@ -127,8 +126,8 @@ public class MouseTextView extends TextView {
 		}
 		@Override
 		public boolean onSingleTapConfirmed(MotionEvent e) {
-			sender.sendAction(new MyAction(true, Constant.ACTION_DOWN, Constant.LEFT_CLICK));
-			sender.sendAction(new MyAction(true, Constant.ACTION_UP, Constant.LEFT_CLICK));
+			sender.sendAction(new MyAction(Constant.ACTION_MOUSE_DOWN, Constant.LEFT_CLICK));
+			sender.sendAction(new MyAction(Constant.ACTION_MOUSE_UP, Constant.LEFT_CLICK));
 			//Toast.makeText(getApplicationContext(),"onSingleTapConfirmed", Toast.LENGTH_SHORT).show();
 		    return false;
 		}

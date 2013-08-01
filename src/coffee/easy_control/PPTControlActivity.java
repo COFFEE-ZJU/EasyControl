@@ -72,6 +72,7 @@ public class PPTControlActivity extends Activity{
 		pageDownButton.setText(R.string.pageDown);
 		sensitivityTV.setText(R.string.sensitivity);
 		playButton.setText(R.string.play);
+		touchView.setText("鼠标触控板");
 		
 		touchView.setBackgroundColor(Color.GRAY);
 		touchView.setSender(sender);
@@ -90,16 +91,16 @@ public class PPTControlActivity extends Activity{
 					if(! isPlaying){
 						isPlaying = true;
 						playButton.setText(R.string.over);
-						sender.sendAction(new MyAction(false, Constant.ACTION_DOWN, Constant.KEY_SHIFT));
-						sender.sendAction(new MyAction(false, Constant.ACTION_DOWN, Constant.KEY_F5));
-						sender.sendAction(new MyAction(false, Constant.ACTION_UP, Constant.KEY_SHIFT));
-						sender.sendAction(new MyAction(false, Constant.ACTION_UP, Constant.KEY_F5));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_DOWN, Constant.KEY_SHIFT));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_DOWN, Constant.KEY_F5));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, Constant.KEY_SHIFT));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, Constant.KEY_F5));
 					}
 					else{
 						isPlaying = false;
 						playButton.setText(R.string.play);
-						sender.sendAction(new MyAction(false, Constant.ACTION_DOWN, Constant.KEY_ESC));
-						sender.sendAction(new MyAction(false, Constant.ACTION_UP, Constant.KEY_ESC));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_DOWN, Constant.KEY_ESC));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, Constant.KEY_ESC));
 					}
 				}
 				return false;
@@ -111,7 +112,7 @@ public class PPTControlActivity extends Activity{
 			private int currentProgress = 5;
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
-				touchView.setText("progress"+currentProgress);
+				//touchView.setText("progress"+currentProgress);
 				touchView.setSensitivity((float) ((float)currentProgress/5.0));
 			}
 			
@@ -135,8 +136,8 @@ public class PPTControlActivity extends Activity{
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
 			int act = event.getAction();
-			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction (true, Constant.ACTION_DOWN, btn));
-			else if(act == MotionEvent.ACTION_UP) sender.sendAction(new MyAction(true, Constant.ACTION_UP, btn));	
+			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction (Constant.ACTION_MOUSE_DOWN, btn));
+			else if(act == MotionEvent.ACTION_UP) sender.sendAction(new MyAction(Constant.ACTION_MOUSE_UP, btn));	
 			return false;
 		}
 	}
@@ -148,8 +149,8 @@ public class PPTControlActivity extends Activity{
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
 			int act = event.getAction();
-			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction (false, Constant.ACTION_DOWN, btn));
-			else if(act == MotionEvent.ACTION_UP) sender.sendAction(new MyAction(false, Constant.ACTION_UP, btn));	
+			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction (Constant.ACTION_KEY_DOWN, btn));
+			else if(act == MotionEvent.ACTION_UP) sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, btn));	
 			return false;	// return false表示系统会继续处理
 		}
 	}

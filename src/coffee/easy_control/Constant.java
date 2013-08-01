@@ -18,14 +18,14 @@ public final class Constant {
 		"M3Key"
 	};
 	
-	public static final byte ACTION_UP = 0;
-	public static final byte ACTION_DOWN = 1;
-	public static final byte ACTION_MOVE = 2;
-	public static final byte ACTION_ROLL = 3;
-	public static final byte ACTION_HEARTBEAT = 4;
-	
-	public static final byte ROLL_UP = 1;
-	public static final byte ROLL_DOWN = 2;
+	public static final byte ACTION_KEY_UP = 0;
+	public static final byte ACTION_KEY_DOWN = 1;
+	public static final byte ACTION_MOUSE_UP = 2;
+	public static final byte ACTION_MOUSE_DOWN = 3;
+	public static final byte ACTION_MOVE = 4;
+	public static final byte ACTION_ROLL_UP = 5;
+	public static final byte ACTION_ROLL_DOWN = 6;
+	public static final byte ACTION_HEARTBEAT = 7;
 	
 	public static final byte LEFT_CLICK = 16;
 	public static final byte MIDDLE_CLICK = 8;

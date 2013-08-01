@@ -122,14 +122,14 @@ public class SteeringWheelActivity extends Activity {
 				else if(y.intValue()>=2) newTurn = 1;
 				else newTurn = 0;
 				if(turn != newTurn){
-					if(turn == -1) sender.sendAction(new MyAction(false, Constant.ACTION_UP, Constant.KEY_LEFT));
-					else if(turn == 1) sender.sendAction(new MyAction(false, Constant.ACTION_UP, Constant.KEY_RIGHT));
+					if(turn == -1) sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, Constant.KEY_LEFT));
+					else if(turn == 1) sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, Constant.KEY_RIGHT));
 					
-					if(newTurn == -1) sender.sendAction(new MyAction(false, Constant.ACTION_DOWN, Constant.KEY_LEFT));
-					else if(newTurn == 1) sender.sendAction(new MyAction(false, Constant.ACTION_DOWN, Constant.KEY_RIGHT));
+					if(newTurn == -1) sender.sendAction(new MyAction(Constant.ACTION_KEY_DOWN, Constant.KEY_LEFT));
+					else if(newTurn == 1) sender.sendAction(new MyAction(Constant.ACTION_KEY_DOWN, Constant.KEY_RIGHT));
 					
 					turn = newTurn;
-					res.setText("right level = "+turn);
+					//res.setText("right level = "+turn);
 				}
 				//sensorMgr.registerListener(this, sensor,SensorManager.SENSOR_DELAY_UI);
 			}
@@ -181,11 +181,9 @@ public class SteeringWheelActivity extends Activity {
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
 			int act = event.getAction();
-			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction (false, Constant.ACTION_DOWN, keys[position]));
-			else if(act == MotionEvent.ACTION_UP) sender.sendAction(new MyAction(false, Constant.ACTION_UP, keys[position]));	
+			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction (Constant.ACTION_KEY_DOWN, keys[position]));
+			else if(act == MotionEvent.ACTION_UP) sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, keys[position]));	
 			return false;	// return false表示系统会继续处理
 		}
 	}
-	
-
 }

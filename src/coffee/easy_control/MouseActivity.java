@@ -73,6 +73,7 @@ public class MouseActivity extends Activity {
 		rightClick.setText(R.string.right_click);
 		rollUpButton.setText(R.string.rollUp);
 		rollDownButton.setText(R.string.rollDown);
+		touchView.setText("Êó±ê´¥¿Ø°å");
 		//touchLayout.setOnTouchListener(new MyTouchListener("RIGHT"));
 		
 		touchView.setBackgroundColor(Color.GRAY);
@@ -83,15 +84,15 @@ public class MouseActivity extends Activity {
 		middleClick.setOnTouchListener(new MouseButtonTouchListener(Constant.MIDDLE_CLICK));
 		rightClick.setOnTouchListener(new MouseButtonTouchListener(Constant.RIGHT_CLICK));
 		
-		rollUpButton.setOnTouchListener(new RollTouchListener(Constant.ROLL_UP));
-		rollDownButton.setOnTouchListener(new RollTouchListener(Constant.ROLL_DOWN));
+		rollUpButton.setOnTouchListener(new RollTouchListener(Constant.ACTION_ROLL_UP));
+		rollDownButton.setOnTouchListener(new RollTouchListener(Constant.ACTION_ROLL_DOWN));
 		
 		sensitivityBar.setProgress(5);
 		sensitivityBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 			private int currentProgress = 5;
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
-				touchView.setText("progress"+currentProgress);
+				//touchView.setText("progress"+currentProgress);
 				touchView.setSensitivity((float) ((float)currentProgress/5.0));
 			}
 			
@@ -115,20 +116,20 @@ public class MouseActivity extends Activity {
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
 			int act = event.getAction();
-			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction (true, Constant.ACTION_DOWN, btn));
-			else if(act == MotionEvent.ACTION_UP) sender.sendAction(new MyAction(true, Constant.ACTION_UP, btn));	
+			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction (Constant.ACTION_MOUSE_DOWN, btn));
+			else if(act == MotionEvent.ACTION_UP) sender.sendAction(new MyAction(Constant.ACTION_MOUSE_UP, btn));	
 			return false;
 		}
 	}
 	
 	class RollTouchListener implements OnTouchListener{
-		private byte btn;
-		public RollTouchListener(byte button){btn = button;}
+		private byte act;
+		public RollTouchListener(byte action){act = action;}
 		
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
-			int act = event.getAction();
-			if(act == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction(true, Constant.ACTION_ROLL, btn));
+			int acttion = event.getAction();
+			if(acttion == MotionEvent.ACTION_DOWN) sender.sendAction(new MyAction(act));
 			return false;
 		}
 	}
