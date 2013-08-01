@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"  >
+    
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/pageDownButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/playButton"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/pageUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/playButton"
+        android:textSize="25sp" />
+    
+    <TextView
+        android:id="@+id/sensitivityTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="25sp" />
+    
+    <SeekBar
+        android:id="@+id/sensitivityBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/sensitivityTV"
+        android:max="10" />
+    
+    <coffee.easy_control.MouseTextView
+        android:id="@+id/touchPanel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/playButton"
+        android:layout_below="@+id/rightClickButton" />
+
+    <Button
+        android:id="@+id/rightClickButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pageDownButton"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/sensitivityBar"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/leftClickButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/pageUpButton"
+        android:layout_below="@+id/sensitivityBar"
+        android:textSize="25sp" />
+    
+</RelativeLayout>

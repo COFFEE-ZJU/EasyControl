@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EasyControl</string>
+    <string name="unconnected">未连接</string>
+    <string name="connected">已连接</string>
+    <string name="connecting">连接中……</string>
+    <string name="connection_failed">连接断开</string>
+    <string name="connectionStatus">连接状态:</string>
+    
+    <string name="other_string">计算结果</string>
+    <string name="input_ip">输入IP</string>
+    <string name="keyboard">键盘控制</string>
+    <string name="steeringWheel">赛车方向盘</string>
+    <string name="mouse">鼠标控制</string>
+    <string name="exit">退出</string>
+    <string name="back">后退</string>
+    <string name="setting">设置</string>
+    <string name="switcher">切换</string>
+    <string name="about">关于</string>
+    <string name="connect">连接</string>
+    <string name="left">左</string>
+	<string name="right">右</string>
+	<string name="selectKey">选择按键</string>
+    
+	<string name="left_click">左键</string>
+	<string name="middle_click"> 中键 </string>
+	<string name="right_click">右键</string>
+	<string name="sensitivity">灵敏度</string>
+	<string name="rollUp">滚轮上</string>
+	<string name="rollDown">滚轮下</string>
+	
+	<string name="PPTControl">幻灯片播放</string>
+	<string name="pageUp">上一页</string>
+	<string name="pageDown">下一页</string>
+	<string name="play">播放</string>
+	<string name="over">结束</string>
+	
+	<string name="accelerate">油门</string>
+	<string name="brake">刹车</string>
+	
+	<string-array name="key_set">
+	    <item>ENTER</item>
+	    
+	    <item>SHIFT</item>
+	    <item>CTRL</item>
+	    <item>ALT</item>
+	    
+	    <item>ESC</item>
+	    
+	    <item>PAGE UP</item>
+	    <item>PAGE DOWN</item>
+	    <item>END</item>
+	    <item>HOME</item>
+	    <item> ← </item>
+	    <item> ↑ </item>
+	    <item> → </item>
+	    <item> ↓ </item>
+	    
+	    <item>NUM 0</item>
+	    <item>NUM 1</item>
+	    <item>NUM 2</item>
+	    <item>NUM 3</item>
+	    <item>NUM 4</item>
+	    <item>NUM 5</item>
+	    <item>NUM 6</item>
+	    <item>NUM 7</item>
+	    <item>NUM 8</item>
+	    <item>NUM 9</item>
+	    
+	    <item>A</item>
+	    <item>B</item>
+	    <item>C</item>
+	    <item>D</item>
+	    <item>E</item>
+	    <item>F</item>
+	    <item>G</item>
+	    <item>H</item>
+	    <item>I</item>
+	    <item>J</item>
+	    <item>K</item>
+	    <item>L</item>
+	    <item>M</item>
+	    <item>N</item>
+	    <item>O</item>
+	    <item>P</item>
+	    <item>Q</item>
+	    <item>R</item>
+	    <item>S</item>
+	    <item>T</item>
+	    <item>U</item>
+	    <item>V</item>
+	    <item>W</item>
+	    <item>X</item>
+	    <item>Y</item>
+	    <item>Z</item>
+	    
+	    <item>F1</item>
+	    <item>F2</item>
+	    <item>F3</item>
+	    <item>F4</item>
+	    <item>F5</item>
+	    <item>F6</item>
+	    <item>F7</item>
+	    <item>F8</item>
+	    <item>F9</item>
+	    <item>F10</item>
+	    <item>F11</item>
+	    <item>F12</item>
+	</string-array>
+</resources>
