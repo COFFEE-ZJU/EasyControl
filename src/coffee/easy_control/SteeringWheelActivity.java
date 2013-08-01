@@ -16,13 +16,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class SteeringWheelActivity extends Activity {
 	private byte[] keys;
 	private SharedPreferences keyPreferences=null;
 	
-	private TextView res=null;
+	//private TextView res=null;
 	private Button L1Btn = null;
 	private Button L2Btn = null;
 	private Button L3Btn = null;
@@ -136,7 +135,7 @@ public class SteeringWheelActivity extends Activity {
 		};
 		sensorMgr.registerListener(lsn, sensor,SensorManager.SENSOR_DELAY_UI);
 
-		res = (TextView)findViewById(R.id.debugger);
+		//res = (TextView)findViewById(R.id.debugger);
 		L1Btn = (Button)findViewById(R.id.L1Button);
 		L2Btn = (Button)findViewById(R.id.L2Button);
 		L3Btn = (Button)findViewById(R.id.L3Button);

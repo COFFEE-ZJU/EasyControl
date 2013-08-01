@@ -31,6 +31,8 @@
 	<string name="rollDown">滚轮下</string>
 	
 	<string name="PPTControl">幻灯片播放</string>
+	<string name="laser">激光</string>
+	<string name="pointer">指针</string>
 	<string name="pageUp">上一页</string>
 	<string name="pageDown">下一页</string>
 	<string name="play">播放</string>

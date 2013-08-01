@@ -87,20 +87,12 @@ public class MouseTextView extends TextView {
 		
 		@Override
 		public boolean onDoubleTap(MotionEvent e) {
-			//thisView.setText("onDoubleTap");
-			//Toast.makeText(getApplicationContext(),"onDoubleTap", Toast.LENGTH_SHORT).show();
 		    return false;
 		}
 		@Override
 		public boolean onDoubleTapEvent(MotionEvent e) {
-			short oldX = 0 , oldY = 0, x, y;
-			//Toast.makeText(getApplicationContext(),"onDoubleTapEvent", Toast.LENGTH_SHORT).show();
+			short x, y;
 			int action = e.getAction();
-//			if(doubleTapping == false){
-//				doubleTapping = true;
-//				oldX = (short)e.getX();
-//				oldY = (short)e.getY();
-//			}
 			
 			switch(action){
 			case (MotionEvent.ACTION_DOWN):
@@ -112,6 +104,8 @@ public class MouseTextView extends TextView {
 			case (MotionEvent.ACTION_MOVE):
 				x = (short)(e.getX() - oldX);
 				y = (short)(e.getY() - oldY);
+				oldX = (short)(e.getX());
+				oldY = (short)(e.getY());
 				//thisView.setText("secondTap moving");
 				sender.sendAction(new MyAction(x, y));
 			case (MotionEvent.ACTION_UP):

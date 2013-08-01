@@ -2,7 +2,7 @@ package coffee.easy_control;
 
 public final class Constant {
 	public static final int PORT_NUM = 2703;
-	public static final int HEARTBEAT_PERIOD = 1000;
+	public static final int HEARTBEAT_PERIOD = 3000;
 	
 	public static final String[] KEYS = new String[]{
 		"accelerateKey",

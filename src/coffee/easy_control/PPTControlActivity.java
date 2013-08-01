@@ -24,6 +24,7 @@ public class PPTControlActivity extends Activity{
 	private Button pageUpButton=null;
 	private Button pageDownButton=null;
 	private Button playButton=null;
+	private Button laserButton=null;
 	private TextView sensitivityTV=null;
 	private SeekBar sensitivityBar=null;
 	
@@ -63,6 +64,7 @@ public class PPTControlActivity extends Activity{
 		pageUpButton = (Button)findViewById(R.id.pageUpButton);
 		pageDownButton = (Button)findViewById(R.id.pageDownButton);
 		playButton = (Button)findViewById(R.id.playButton);
+		laserButton = (Button)findViewById(R.id.laserButton);
 		sensitivityTV = (TextView)findViewById(R.id.sensitivityTV);
 		sensitivityBar = (SeekBar)findViewById(R.id.sensitivityBar);
 		
@@ -72,6 +74,7 @@ public class PPTControlActivity extends Activity{
 		pageDownButton.setText(R.string.pageDown);
 		sensitivityTV.setText(R.string.sensitivity);
 		playButton.setText(R.string.play);
+		laserButton.setText(R.string.laser);
 		touchView.setText("Êó±ê´¥¿Ø°å");
 		
 		touchView.setBackgroundColor(Color.GRAY);
@@ -82,6 +85,31 @@ public class PPTControlActivity extends Activity{
 		rightClickButton.setOnTouchListener(new MouseButtonTouchListener(Constant.RIGHT_CLICK));
 		pageUpButton.setOnTouchListener(new KeyTouchListener(Constant.KEY_PAGE_UP));
 		pageDownButton.setOnTouchListener(new KeyTouchListener(Constant.KEY_PAGE_DOWN));
+		
+		laserButton.setOnTouchListener(new OnTouchListener() {
+			private boolean isLaser = false;
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				int act = event.getAction();
+				if(act == MotionEvent.ACTION_UP){
+					if(! isLaser){
+						isLaser = true;
+						laserButton.setText(R.string.pointer);
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_DOWN, Constant.KEY_CTRL));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_DOWN, Constant.KEY_L));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, Constant.KEY_CTRL));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, Constant.KEY_L));
+					}
+					else{
+						isLaser = false;
+						laserButton.setText(R.string.laser);
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_DOWN, Constant.KEY_ESC));
+						sender.sendAction(new MyAction(Constant.ACTION_KEY_UP, Constant.KEY_ESC));
+					}
+				}
+				return false;
+			}
+		});
 		playButton.setOnTouchListener(new OnTouchListener() {
 			private boolean isPlaying = false;
 			@Override

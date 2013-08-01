@@ -5,7 +5,7 @@
     android:orientation="vertical"  >
     
     <Button
-        android:id="@+id/playButton"
+        android:id="@+id/laserButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_toRightOf="@+id/playButton"
+        android:layout_toRightOf="@+id/laserButton"
         android:textSize="25sp" />
 
     <Button
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/playButton"
+        android:layout_toLeftOf="@+id/laserButton"
         android:textSize="25sp" />
     
     <TextView
@@ -53,7 +53,7 @@
         android:layout_height="fill_parent"
         android:gravity="center"
         android:textSize="25sp"
-        android:layout_above="@+id/playButton"
+        android:layout_above="@+id/laserButton"
         android:layout_below="@+id/rightClickButton" />
 
     <Button
@@ -72,6 +72,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/pageUpButton"
         android:layout_below="@+id/sensitivityBar"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/touchPanel"
+        android:layout_toRightOf="@+id/leftClickButton"
         android:textSize="25sp" />
     
 </RelativeLayout>
